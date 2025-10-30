@@ -30,7 +30,7 @@ fn main() {
     #[cfg(feature = "vulkan")]
     {
         builder = builder
-            .header(format!("{}\\src\\vk.h", dir))
+            .header(format!("{}\\src\\vulkan.h", dir))
             .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
             .wrap_static_fns(true)
             .wrap_static_fns_path(out_dir.join("wrap_static_fns"))

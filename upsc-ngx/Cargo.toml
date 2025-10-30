@@ -7,7 +7,6 @@ keywords.workspace = true
 license.workspace = true
 repository.workspace = true
 authors.workspace = true
-exclude = ["DLSS/doc/**", "*.pdf", "*.txt", "*.md"]
 
 [dependencies]
 wgpu = { workspace = true }
