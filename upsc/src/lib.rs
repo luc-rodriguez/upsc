@@ -22,7 +22,7 @@ pub enum QualityMode {
 
 impl QualityMode {
     #[cfg(dlss)]
-    pub(crate) fn raw(&self, target: UVec2) -> NVSDK_NGX_PerfQuality_Value {
+    pub(crate) fn as_val(&self, target: UVec2) -> NVSDK_NGX_PerfQuality_Value {
         match self {
             Self::Auto => {
                 let mega_pixels = (target.x * target.y) as f32 / 1_000_000.0;
