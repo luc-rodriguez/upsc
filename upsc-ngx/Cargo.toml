@@ -9,9 +9,9 @@ repository.workspace = true
 authors.workspace = true
 
 [dependencies]
-wgpu = { workspace = true }
 windows = { workspace = true, optional = true }
 ash = { workspace = true, optional = true }
+wgpu = { workspace = true }
 
 [build-dependencies]
 bindgen.workspace = true
