@@ -8,8 +8,13 @@ repository.workspace = true
 authors.workspace = true
 
 [dependencies]
-upsc-ngx = { path = "../upsc-ngx", optional = true }
+glam.workspace = true
 
-[features]
-default = ["dlss"]
-dlss = ["dep:upsc-ngx"]
+[target.'cfg(windows)'.dependencies]
+upsc-ngx = { path = "../upsc-ngx", features = ["vulkan", "dx12"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+upsc-ngx = { path = "../upsc-ngx", features = ["vulkan"] }
+
+[build-dependencies]
+cfg_aliases.workspace = true
