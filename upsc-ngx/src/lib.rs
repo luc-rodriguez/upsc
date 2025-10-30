@@ -63,3 +63,16 @@ pub fn texture_to_ngx(texture_view: &TextureView, adapter: &Adapter) -> NVSDK_NG
         )
     }
 }
+
+pub fn halton_sequence(mut index: u32, base: u32) -> f32 {
+    let mut f = 1.0;
+    let mut result = 0.0;
+    
+    while index > 0 {
+        f /= base as f32;
+        result += f * (index % base) as f32;
+        index = (index as f32 / base as f32).floor() as u32;
+    }
+
+    result
+}
