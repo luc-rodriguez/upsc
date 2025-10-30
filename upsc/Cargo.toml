@@ -8,3 +8,8 @@ repository.workspace = true
 authors.workspace = true
 
 [dependencies]
+upsc-ngx = { path = "../upsc-ngx", optional = true }
+
+[features]
+default = ["dlss"]
+dlss = ["dep:upsc-ngx"]

@@ -27,3 +27,39 @@ use ash::vk::{
     Format as VkFormat,
     Image as VkImage,
 };
+
+use wgpu::{Adapter, TextureUsages, TextureView};
+
+#[cfg(feature = "vulkan")]
+use wgpu::wgc::api::Vulkan;
+
+#[cfg(feature = "vulkan")]
+pub fn texture_to_ngx(texture_view: &TextureView, adapter: &Adapter) -> NVSDK_NGX_Resource_VK {
+    unsafe {
+        let raw_view = texture_view.as_hal::<Vulkan>().unwrap().raw_handle();
+        let texture = texture_view.texture();
+
+        NVSDK_NGX_Create_ImageView_Resource_VK(
+            raw_view,
+            texture.as_hal::<Vulkan>().unwrap().raw_handle(),
+            ImageSubresourceRange {
+                aspect_mask: if texture.format().has_color_aspect() {
+                    ImageAspectFlags::COLOR
+                } else {
+                    ImageAspectFlags::DEPTH
+                },
+                base_mip_level: 0,
+                level_count: REMAINING_MIP_LEVELS,
+                base_array_layer: 0,
+                layer_count: REMAINING_ARRAY_LAYERS,
+            },
+            adapter
+                .as_hal::<Vulkan>()
+                .unwrap()
+                .texture_format_as_raw(texture.format()),
+            texture.width(),
+            texture.height(),
+            texture.usage().contains(TextureUsages::STORAGE_BINDING),
+        )
+    }
+}

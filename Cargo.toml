@@ -18,6 +18,7 @@ repository = "https://gitlab.com/luc-rodriguez/upsc"
 authors = ["Luc Rodriguez"]
 
 [workspace.dependencies]
+wgpu-types = { version = "27", default-features = false }
 wgpu = { version = "27", default-features = false }
 cfg_aliases = "0.2.1"
 dircpy = "0.3.19"
