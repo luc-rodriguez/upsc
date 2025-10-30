@@ -1,9 +1,12 @@
 [package]
 name = "upsc-ngx"
 version = "0.1.0"
-edition = "2024"
 description = "ngx -> upsc"
-repository = "https://github.com/luc-rodriguez/upsc"
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
 exclude = ["DLSS/doc/**", "*.pdf", "*.txt", "*.md"]
 
 [dependencies]
