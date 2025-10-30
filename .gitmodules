@@ -4,3 +4,6 @@
 [submodule "upsc-ngx/DLSS"]
 	path = upsc-ngx/DLSS
 	url = https://github.com/NVIDIA/DLSS.git
+[submodule "upsc-fidelityfx/FidelityFX-SDK"]
+	path = upsc-fidelityfx/FidelityFX-SDK
+	url = https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK.git
