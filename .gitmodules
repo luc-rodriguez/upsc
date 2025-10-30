@@ -1,0 +1,6 @@
+[submodule "Vulkan-Headers"]
+	path = Vulkan-Headers
+	url = https://github.com/KhronosGroup/Vulkan-Headers.git
+[submodule "upsc-ngx/DLSS"]
+	path = upsc-ngx/DLSS
+	url = https://github.com/NVIDIA/DLSS.git
