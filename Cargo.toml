@@ -1,0 +1,40 @@
+[workspace]
+resolver = "2"
+members = [
+    "upsc",
+    "upsc-ngx",
+]
+exclude = []
+default-members = [
+    "upsc",
+    "upsc-ngx",
+]
+
+[workspace.package]
+edition = "2024"
+keywords = ["graphics"]
+license = "MIT OR Apache-2.0"
+repository = "https://gitlab.com/luc-rodriguez/upsc"
+authors = ["Luc Rodriguez"]
+
+[workspace.dependencies]
+wgpu = { version = "27", default-features = false }
+cfg_aliases = "0.2.1"
+dircpy = "0.3.19"
+thiserror = "2"
+bitflags = "2"
+glam = "^0.30"
+uuid = "1"
+
+# Build dependencies
+bindgen = "0.72"
+cc = "^1.2"
+
+# Vulkan dependencies
+ash = "=0.38"
+
+# DX12 and GLES dependencies
+windows = { version = ">=0.59, <=0.62", default-features = false }
+
+# Metal dependencies
+objc2-metal = "0.3"

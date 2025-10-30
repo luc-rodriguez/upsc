@@ -1,0 +1,40 @@
+[package]
+name = "upsc-ngx"
+version = "0.1.0"
+edition = "2024"
+description = "ngx -> upsc"
+repository = "https://github.com/luc-rodriguez/upsc"
+exclude = ["DLSS/doc/**", "*.pdf", "*.txt", "*.md"]
+
+[dependencies]
+wgpu = { workspace = true }
+windows = { workspace = true, optional = true }
+ash = { workspace = true, optional = true }
+
+[build-dependencies]
+bindgen.workspace = true
+dircpy.workspace = true
+cc.workspace = true
+
+[features]
+default = ["vulkan"]
+vulkan = [
+    "dep:ash",
+    "wgpu/vulkan",
+]
+dx12 = [
+    "dep:windows",
+    "wgpu/dx12",
+    "windows/Win32_Graphics_Direct3D_Fxc",
+    "windows/Win32_Graphics_Direct3D_Dxc",
+    "windows/Win32_Graphics_Direct3D",
+    "windows/Win32_Graphics_Direct3D12",
+    "windows/Win32_Graphics_DirectComposition",
+    "windows/Win32_Graphics_Dxgi_Common",
+    "windows/Win32_Security",
+    "windows/Win32_System_Diagnostics_Debug",
+    "windows/Win32_System_Kernel",
+    "windows/Win32_System_Performance",
+    "windows/Win32_System_Threading",
+    "windows/Win32_UI_WindowsAndMessaging",
+]
