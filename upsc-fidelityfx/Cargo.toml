@@ -1,0 +1,19 @@
+[package]
+name = "upsc-fidelityfx"
+version = "0.1.0"
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+ash = { workspace = true, optional = true }
+wgpu.workspace = true
+glam.workspace = true
+
+[build-dependencies]
+bindgen.workspace = true
+# dircpy.workspace = true
+heck.workspace = true
+cc.workspace = true
