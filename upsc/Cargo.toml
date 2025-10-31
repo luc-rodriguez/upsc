@@ -9,4 +9,4 @@ authors.workspace = true
 description = "A cross-platform upscaler for wgpu! 🚀"
 
 [dependencies]
-upsc-core = { git = "https://gitlab.com/luc-rodriguez/upsc", package = "upsc-core" }
+upsc-core = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-core" }

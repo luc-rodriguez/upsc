@@ -12,8 +12,8 @@ description = "The consuming crate for various backends."
 glam.workspace = true
 
 [target.'cfg(any(windows, target_os = "linux"))'.dependencies]
-upsc-ngx = { path = "../upsc-ngx", default-features = false, features = ["vulkan"] }
-upsc-fidelityfx = { path = "../upsc-fidelityfx", default-features = false, features = ["vulkan"]}
+upsc-ngx = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-ngx", default-features = false, features = ["vulkan"] }
+upsc-fidelityfx = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-fidelityfx", default-features = false, features = ["vulkan"]}
 
 [build-dependencies]
 cfg_aliases.workspace = true
