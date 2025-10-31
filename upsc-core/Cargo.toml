@@ -1,0 +1,19 @@
+[package]
+name = "upsc-core"
+version = "0.1.0"
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+description = "The consuming crate for various backends."
+
+[dependencies]
+glam.workspace = true
+
+[target.'cfg(any(windows, target_os = "linux"))'.dependencies]
+upsc-ngx = { path = "../upsc-ngx", features = ["vulkan"] }
+upsc-fidelityfx = { path = "../upsc-fidelityfx", features = ["vulkan"]}
+
+[build-dependencies]
+cfg_aliases.workspace = true

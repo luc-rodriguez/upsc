@@ -17,3 +17,10 @@ bindgen.workspace = true
 # dircpy.workspace = true
 heck.workspace = true
 cc.workspace = true
+
+[features]
+default = ["vulkan"]
+vulkan = [
+    "dep:ash",
+    "wgpu/vulkan",
+]

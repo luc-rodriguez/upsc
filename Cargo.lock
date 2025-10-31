@@ -639,9 +639,14 @@ checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
 [[package]]
 name = "upsc"
 version = "0.1.0"
+
+[[package]]
+name = "upsc-core"
+version = "0.1.0"
 dependencies = [
  "cfg_aliases",
  "glam",
+ "upsc-fidelityfx",
  "upsc-ngx",
 ]
 

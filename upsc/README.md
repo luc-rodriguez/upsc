@@ -1,0 +1,2 @@
+This crate is a stub for the `upsc` project, which contains many rather large dependencies.
+The usage of this crate comes with many requirements, please visit check out our repository's readme for more information.

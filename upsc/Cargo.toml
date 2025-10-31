@@ -6,12 +6,7 @@ keywords.workspace = true
 license.workspace = true
 repository.workspace = true
 authors.workspace = true
+description = "A cross-platform upscaler for wgpu! 🚀"
 
 [dependencies]
-glam.workspace = true
-
-[target.'cfg(any(windows, target_os = "linux"))'.dependencies]
-upsc-ngx = { path = "../upsc-ngx", features = ["vulkan"] }
-
-[build-dependencies]
-cfg_aliases.workspace = true
+upsc-core = { git = "https://gitlab.com/luc-rodriguez/upsc", package = "upsc-core" }
