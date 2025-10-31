@@ -4,10 +4,10 @@ use std::{env, path::PathBuf};
 fn main() {
     let cargo_manifest_dir = env!("CARGO_MANIFEST_DIR");
 
-    let sdk_dir = format!("{cargo_manifest_dir}\\DLSS");
-    let headers: String = format!("{sdk_dir}\\include");
+    let sdk_dir = format!("{cargo_manifest_dir}/DLSS");
+    let headers: String = format!("{sdk_dir}/include");
 
-    let vulkan_headers = format!("{cargo_manifest_dir}\\..\\Vulkan-Headers\\include");
+    let vulkan_headers = format!("{cargo_manifest_dir}/../Vulkan-Headers/include");
 
     let out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
 
@@ -41,11 +41,11 @@ fn main() {
     {
         builder = builder
             .headers([
-                format!("{vulkan_headers}\\vulkan\\vulkan.h"),
-                format!("{headers}\\nvsdk_ngx_helpers.h"),
-                format!("{headers}\\nvsdk_ngx_helpers_dlssd.h"),
-                format!("{headers}\\nvsdk_ngx_helpers_vk.h"),
-                format!("{headers}\\nvsdk_ngx_helpers_dlssd_vk.h"),
+                format!("{vulkan_headers}/vulkan/vulkan.h"),
+                format!("{headers}/nvsdk_ngx_helpers.h"),
+                format!("{headers}/nvsdk_ngx_helpers_dlssd.h"),
+                format!("{headers}/nvsdk_ngx_helpers_vk.h"),
+                format!("{headers}/nvsdk_ngx_helpers_dlssd_vk.h"),
             ])
             .clang_arg(format!("-I{vulkan_headers}"))
             .blocklist_item("Vk.*")
@@ -61,7 +61,7 @@ fn main() {
         #include "nvsdk_ngx_helpers.h"
 
         builder = builder
-            .header(format!("{}\\src\\dx12.h", cargo_manifest_dir));
+            .header(format!("{}/src/dx12.h", cargo_manifest_dir));
     }
     */
 
