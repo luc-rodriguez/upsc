@@ -10,10 +10,7 @@ authors.workspace = true
 [dependencies]
 glam.workspace = true
 
-[target.'cfg(windows)'.dependencies]
-upsc-ngx = { path = "../upsc-ngx", features = ["vulkan", "dx12"] }
-
-[target.'cfg(target_os = "linux")'.dependencies]
+[target.'cfg(any(windows, target_os = "linux"))'.dependencies]
 upsc-ngx = { path = "../upsc-ngx", features = ["vulkan"] }
 
 [build-dependencies]
