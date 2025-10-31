@@ -1,4 +1,9 @@
-# Disclaimer
+## Notes / Disclaimers
+
+Due to the usually higher requirements of most upscaling technologies, this project may not function everywhere that `wgpu` may normally.
+
+When using this project, ensure that you have read & comply with **all** of the various terms, licenses, and include any required copyright or license blurbs.
+The authors of this project will not be responsible for any misuse of the underlying technologies.
 
 Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
