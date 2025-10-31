@@ -1,9 +1,10 @@
 [workspace]
 resolver = "2"
 members = [
+    "upsc",
     "upsc-core", 
     "upsc-ngx",
-    "upsc-fidelityfx", "upsc",
+    "upsc-fidelityfx",
 ]
 exclude = []
 

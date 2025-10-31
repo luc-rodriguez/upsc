@@ -639,6 +639,9 @@ checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
 [[package]]
 name = "upsc"
 version = "0.1.0"
+dependencies = [
+ "upsc-core 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
+]
 
 [[package]]
 name = "upsc-core"
@@ -646,8 +649,19 @@ version = "0.1.0"
 dependencies = [
  "cfg_aliases",
  "glam",
- "upsc-fidelityfx",
- "upsc-ngx",
+ "upsc-fidelityfx 0.1.0",
+ "upsc-ngx 0.1.0",
+]
+
+[[package]]
+name = "upsc-core"
+version = "0.1.0"
+source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
+dependencies = [
+ "cfg_aliases",
+ "glam",
+ "upsc-fidelityfx 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
+ "upsc-ngx 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
 ]
 
 [[package]]
@@ -663,8 +677,33 @@ dependencies = [
 ]
 
 [[package]]
+name = "upsc-fidelityfx"
+version = "0.1.0"
+source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
+dependencies = [
+ "ash",
+ "bindgen",
+ "cc",
+ "glam",
+ "heck",
+ "wgpu",
+]
+
+[[package]]
 name = "upsc-ngx"
 version = "0.1.0"
+dependencies = [
+ "ash",
+ "bindgen",
+ "cc",
+ "glam",
+ "wgpu",
+]
+
+[[package]]
+name = "upsc-ngx"
+version = "0.1.0"
+source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
 dependencies = [
  "ash",
  "bindgen",
