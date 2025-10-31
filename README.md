@@ -1,6 +1,7 @@
 ## Notes / Disclaimers
 
-Due to the usually higher requirements of most upscaling technologies, this project may not function everywhere that `wgpu` may normally.
+As much as we would like to, due to the usually higher requirements of most upscaling technologies, this project may not function everywhere that `wgpu` may normally.
+Consider it to be best-of-effort for the foreseeable future.
 
 When using this project, ensure that you have read & comply with **all** of the various terms, licenses, and include any required copyright or license blurbs.
 The authors of this project will not be responsible for any misuse of the underlying technologies.
