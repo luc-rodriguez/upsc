@@ -1,14 +1,11 @@
 [workspace]
 resolver = "2"
 members = [
-    "upsc",
+    "upsc", 
     "upsc-ngx",
+    "upsc-fidelityfx",
 ]
 exclude = []
-default-members = [
-    "upsc",
-    "upsc-ngx",
-]
 
 [workspace.package]
 edition = "2024"
@@ -21,14 +18,15 @@ authors = ["Luc Rodriguez"]
 wgpu-types = { version = "27", default-features = false }
 wgpu = { version = "27", default-features = false }
 cfg_aliases = "0.2.1"
-dircpy = "0.3.19"
+# dircpy = "0.3.19"
 thiserror = "2"
 bitflags = "2"
 glam = "^0.30"
 uuid = "1"
 
 # Build dependencies
-bindgen = "0.72"
+bindgen = "=0.72"
+heck = "0.5"
 cc = "^1.2"
 
 # Vulkan dependencies
