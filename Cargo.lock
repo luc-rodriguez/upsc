@@ -181,6 +181,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"
 
 [[package]]
+name = "fidelityfx-sys"
+version = "0.1.0+v1.1.4"
+source = "git+https://github.com/Traverse-Research/fidelityfx-rs#b5467dca1578e149643a70197a463d1fc0c917aa"
+dependencies = [
+ "ash",
+ "libloading",
+]
+
+[[package]]
 name = "find-msvc-tools"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -640,7 +649,7 @@ checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
 name = "upsc"
 version = "0.1.0"
 dependencies = [
- "upsc-core 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
+ "upsc-core 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
 ]
 
 [[package]]
@@ -648,38 +657,26 @@ name = "upsc-core"
 version = "0.1.0"
 dependencies = [
  "cfg_aliases",
+ "fidelityfx-sys",
  "glam",
- "upsc-fidelityfx 0.1.0",
- "upsc-ngx 0.1.0",
+ "upsc-ngx 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
 ]
 
 [[package]]
 name = "upsc-core"
 version = "0.1.0"
-source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
+source = "git+https://github.com/luc-rodriguez/upsc#e3cefa07104bd3835dad8c7c8b22f689651ccc3b"
 dependencies = [
  "cfg_aliases",
  "glam",
- "upsc-fidelityfx 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
- "upsc-ngx 0.1.0 (git+https://gitlab.com/luc-rodriguez/upsc)",
+ "upsc-fidelityfx",
+ "upsc-ngx 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
 ]
 
 [[package]]
 name = "upsc-fidelityfx"
 version = "0.1.0"
-dependencies = [
- "ash",
- "bindgen",
- "cc",
- "glam",
- "heck",
- "wgpu",
-]
-
-[[package]]
-name = "upsc-fidelityfx"
-version = "0.1.0"
-source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
+source = "git+https://github.com/luc-rodriguez/upsc#e3cefa07104bd3835dad8c7c8b22f689651ccc3b"
 dependencies = [
  "ash",
  "bindgen",
@@ -703,7 +700,7 @@ dependencies = [
 [[package]]
 name = "upsc-ngx"
 version = "0.1.0"
-source = "git+https://gitlab.com/luc-rodriguez/upsc#96056779104346907a51a04ec16897db8c1b84ad"
+source = "git+https://github.com/luc-rodriguez/upsc#e3cefa07104bd3835dad8c7c8b22f689651ccc3b"
 dependencies = [
  "ash",
  "bindgen",

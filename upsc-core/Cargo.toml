@@ -13,7 +13,8 @@ glam.workspace = true
 
 [target.'cfg(any(windows, target_os = "linux"))'.dependencies]
 upsc-ngx = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-ngx", default-features = false, features = ["vulkan"] }
-upsc-fidelityfx = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-fidelityfx", default-features = false, features = ["vulkan"]}
+fidelityfx-sys = { git = "https://github.com/Traverse-Research/fidelityfx-rs", package = "fidelityfx-sys", default-features = false, features = ["vulkan"], rev = "b5467dc" }
+# upsc-fidelityfx = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-fidelityfx", default-features = false, features = ["vulkan"]}
 
 [build-dependencies]
 cfg_aliases.workspace = true
