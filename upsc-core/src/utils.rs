@@ -26,6 +26,10 @@ pub enum Presets {
     Auto,
     /// Anti-aliased, with no upscaling.
     Native,
+    /// Commonly "Ultra Quality", We make this available, but it's advised not to use.
+    /// 
+    /// It doesn't seem to have much support, if any, on some backends.
+    Best,
     /// Minimal upscaling to maintain high visual fidelity.
     Quality,
     /// A nice trade-off of quality/artifacts for higher performance.
@@ -73,6 +77,12 @@ impl Presets {
             Self::Native => {
                 bitflags_match!(backends, {
                     Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_DLAA)),
+                    _ => (),
+                })
+            }
+            Self::Best => {
+                bitflags_match!(backends, {
+                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraQuality)),
                     _ => (),
                 })
             }
