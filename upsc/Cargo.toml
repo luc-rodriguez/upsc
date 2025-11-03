@@ -1,6 +1,6 @@
 [package]
 name = "upsc"
-version = "0.0.1-dev"
+version = "0.0.2-dev"
 edition.workspace = true
 keywords.workspace = true
 license.workspace = true
