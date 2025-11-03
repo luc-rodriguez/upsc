@@ -9,6 +9,7 @@ authors.workspace = true
 description = "The consuming crate for various backends."
 
 [dependencies]
+bitflags.workspace = true
 glam.workspace = true
 
 [target.'cfg(any(windows, target_os = "linux"))'.dependencies]

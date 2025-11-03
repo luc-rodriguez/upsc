@@ -183,7 +183,7 @@ checksum = "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"
 [[package]]
 name = "fidelityfx-sys"
 version = "0.1.0+v1.1.4"
-source = "git+https://github.com/Traverse-Research/fidelityfx-rs#b5467dca1578e149643a70197a463d1fc0c917aa"
+source = "git+https://github.com/Traverse-Research/fidelityfx-rs?rev=b5467dc#b5467dca1578e149643a70197a463d1fc0c917aa"
 dependencies = [
  "ash",
  "libloading",
@@ -656,6 +656,7 @@ dependencies = [
 name = "upsc-core"
 version = "0.1.0"
 dependencies = [
+ "bitflags",
  "cfg_aliases",
  "fidelityfx-sys",
  "glam",

@@ -1,7 +1,20 @@
+use bitflags::bitflags;
 use glam::UVec2;
 
 #[cfg(dlss)]
 use upsc_ngx::*;
+
+bitflags! {
+    /// Used to identify enabled backends internally, Although exposed, Underlying values may change at any time.
+    pub struct Backends: u8 {
+        const DLSS = 1;
+        const FSR1 = 1 << 1;
+        const FSR2 = 1 << 2;
+        const FSR3 = 1 << 3;
+        const XeSS = 1 << 4;
+        const COMP = 1 << 5; // Compute shader fallback
+    }
+}
 
 #[derive(Clone, Copy, PartialEq, Eq, Hash, Default, Debug)]
 pub enum QualityMode {
