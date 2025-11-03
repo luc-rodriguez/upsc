@@ -9,12 +9,22 @@ bitflags! {
     #[repr(transparent)]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
     pub struct Backends: u8 {
-        const DLSS = 1 << 0;
-        const FSR1 = 1 << 1;
-        const FSR2 = 1 << 2;
-        const FSR3 = 1 << 3;
-        const XeSS = 1 << 4;
-        const COMP = 1 << 5; // Compute shader fallback
+        /// Does nothing, useful for testing.
+        const NOOP = 1 << 0;
+        /// https://www.nvidia.com/en-us/geforce/technologies/dlss/
+        const DLSS = 1 << 1;
+        /// https://gpuopen.com/fidelityfx-superresolution/
+        const FSR1 = 1 << 2;
+        /// https://gpuopen.com/fidelityfx-superresolution-2/
+        const FSR2 = 1 << 3;
+        /// https://gpuopen.com/fidelityfx-super-resolution-3/
+        const FSR3 = 1 << 4;
+        /// https://www.intel.com/content/www/us/en/developer/topic-technology/gamedev/xess2.html
+        const XeSS = 1 << 5;
+        /// https://developer.apple.com/documentation/metalfx
+        const MLFX = 1 << 6;
+        /// This is a custom fallback, intended for systems otherwise without an available backend.
+        const COMP = 1 << 7;
     }
 }
 
