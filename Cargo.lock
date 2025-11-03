@@ -289,12 +289,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "heck"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
-
-[[package]]
 name = "hexf-parse"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -647,10 +641,7 @@ checksum = "b4ac048d71ede7ee76d585517add45da530660ef4390e49b098733c6e897f254"
 
 [[package]]
 name = "upsc"
-version = "0.1.0"
-dependencies = [
- "upsc-core 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
-]
+version = "0.0.1-dev"
 
 [[package]]
 name = "upsc-core"
@@ -661,30 +652,6 @@ dependencies = [
  "fidelityfx-sys",
  "glam",
  "upsc-ngx 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
-]
-
-[[package]]
-name = "upsc-core"
-version = "0.1.0"
-source = "git+https://github.com/luc-rodriguez/upsc#e3cefa07104bd3835dad8c7c8b22f689651ccc3b"
-dependencies = [
- "cfg_aliases",
- "glam",
- "upsc-fidelityfx",
- "upsc-ngx 0.1.0 (git+https://github.com/luc-rodriguez/upsc)",
-]
-
-[[package]]
-name = "upsc-fidelityfx"
-version = "0.1.0"
-source = "git+https://github.com/luc-rodriguez/upsc#e3cefa07104bd3835dad8c7c8b22f689651ccc3b"
-dependencies = [
- "ash",
- "bindgen",
- "cc",
- "glam",
- "heck",
- "wgpu",
 ]
 
 [[package]]

@@ -1,6 +1,6 @@
 [package]
 name = "upsc"
-version = "0.1.0"
+version = "0.0.1-dev"
 edition.workspace = true
 keywords.workspace = true
 license.workspace = true
@@ -9,4 +9,4 @@ authors.workspace = true
 description = "A cross-platform upscaler for wgpu! 🚀"
 
 [dependencies]
-upsc-core = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-core" }
+# upsc-core = { git = "https://github.com/luc-rodriguez/upsc", package = "upsc-core" }
