@@ -4,6 +4,7 @@ members = [
     "upsc",
     "upsc-core", 
     "upsc-ngx",
+    "upsc-xess",
     # "upsc-fidelityfx",
 ]
 exclude = []

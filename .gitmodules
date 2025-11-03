@@ -7,3 +7,6 @@
 [submodule "upsc-fidelityfx/FidelityFX-SDK"]
 	path = upsc-fidelityfx/FidelityFX-SDK
 	url = https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK.git
+[submodule "upsc-xess/xess"]
+	path = upsc-xess/xess
+	url = https://github.com/intel/xess

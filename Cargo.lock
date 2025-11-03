@@ -711,6 +711,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "upsc-xess"
+version = "0.1.0"
+dependencies = [
+ "ash",
+ "bindgen",
+ "cc",
+ "glam",
+ "wgpu",
+]
+
+[[package]]
 name = "wgpu"
 version = "27.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
