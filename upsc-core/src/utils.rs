@@ -51,9 +51,7 @@ impl Presets {
         match self {
             Self::Auto => {
                 // To simplify things, let's resuse the logic for existing presets.
-                let mut recurse = |preset: Presets| {
-                    modes.extend(preset.as_val(target_resolution, backends));
-                };
+                let mut recurse = |preset: Presets| modes.extend(preset.as_val(target_resolution, backends));
 
                 // TODO: This should probably have some unique logic for different backends.
                 // The rest of this case is loosely based on Nvidia's recommendations for DLSS.
