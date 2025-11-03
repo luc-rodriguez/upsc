@@ -13,7 +13,7 @@ exclude = []
 edition = "2024"
 keywords = ["graphics"]
 license = "MIT OR Apache-2.0"
-repository = "https://gitlab.com/luc-rodriguez/upsc"
+repository = "https://github.com/luc-rodriguez/upsc"
 authors = ["Luc Rodriguez"]
 
 [workspace.dependencies]
