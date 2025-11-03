@@ -19,3 +19,7 @@ OpenCL is a trademark of Apple Inc. used by permission by Khronos Group, Inc.
 Microsoft is a registered trademark of Microsoft Corporation in the US and other jurisdictions.
 
 Windows is a registered trademark of Microsoft Corporation in the US and other jurisdictions.
+
+## Contributing
+
+Contributions are welcome. Please open an issue before starting work on a non-trivial PR.
