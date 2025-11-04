@@ -57,6 +57,7 @@ use fidelityfx_sys::sdk::fsr3;
 pub enum Mode {
     #[cfg(ngx)]
     NGX(ngx::NVSDK_NGX_PerfQuality_Value),
+    /// `None` here implies that a native resolution should be used.
     #[cfg(ffx)]
     FSR(Option<fsr3::Fsr3QualityMode>),
 }
@@ -91,6 +92,7 @@ impl Presets {
                 bitflags_match!(backends, {
                     #[cfg(ngx)]
                     Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_DLAA)),
+                    // FSR 3 doesn't reserve a quality mode for rendering at native resolution.
                     #[cfg(ffx)]
                     Backends::FSR => modes.push(Mode::FSR(None)),
                     _ => (),
@@ -100,6 +102,8 @@ impl Presets {
                 bitflags_match!(backends, {
                     #[cfg(ngx)]
                     Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraQuality)),
+                    // FSR 3 doesn't seem to have a real equivalent of "Ultra Quality"
+                    // so let's use something similar?
                     #[cfg(ffx)]
                     Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::QUALITY))),
                     _ => (),
