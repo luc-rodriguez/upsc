@@ -7,15 +7,19 @@ This is an ambitious project which aims to make modern graphics features such as
 
 easier to integrate. Intended to be used with the incredible `wgpu` ecosystem.
 
-Although bindings for them are generated here, We're aiming to make safe-ish, unified, solution for the various proprietary SDKs, as well as custom fallbacks whenever possible.
+Although bindings for them are generated here, We're aiming to make safe-ish, unified, solution for various proprietary SDKs, as well as custom fallbacks whenever possible.
 
 ## Notes / Disclaimers
 
 As much as we would like to, due to the usually higher requirements of most upscaling technologies, this project may not function everywhere that `wgpu` may normally.
 Consider it to be best-of-effort for the foreseeable future.
 
+Although we seek to ease this as much as possible, many of the underlying technologies require fairly deep integration, and can be quite unsafe, which is usually out of our control.
+
 When using this project, ensure that you have read & comply with **all** of the various terms, licenses, and include any required copyright or license blurbs.
-The authors of this project will not be responsible for any misuse of the underlying technologies.
+The authors of this project will not be responsible for any misuse of any of the underlying technologies.
+
+---
 
 Other product names used in this publication are for identification purposes only and may be trademarks of their respective companies.
 
