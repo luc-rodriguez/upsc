@@ -6,6 +6,7 @@ This is an ambitious project which aims to make modern graphics features such as
 - Async Reprojection
 
 easier to integrate. Intended to be used with the incredible `wgpu` ecosystem.
+
 Although bindings for them are generated here, We're aiming to make safe-ish, unified, solution for the various proprietary SDKs, as well as custom fallbacks whenever possible.
 
 ## Notes / Disclaimers
