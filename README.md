@@ -1,3 +1,13 @@
+## upsc
+
+This is an ambitious project which aims to make modern graphics features such as:
+- Super Resolution
+- Frame Generation
+- Async Reprojection
+
+easier to integrate, built on, and for the incredible `wgpu` ecosystem.
+Although bindings for them are generated here, We're aiming to make safe-ish, unified, solution for the various proprietary SDKs, as well as custom fallbacks whenever possible.
+
 ## Notes / Disclaimers
 
 As much as we would like to, due to the usually higher requirements of most upscaling technologies, this project may not function everywhere that `wgpu` may normally.
