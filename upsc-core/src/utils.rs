@@ -12,23 +12,20 @@ bitflags! {
         /// Does nothing, useful for testing.
         const NOOP = 1 << 0;
         /// https://www.nvidia.com/en-us/geforce/technologies/dlss/
-        const DLSS = 1 << 1;
-        /// https://gpuopen.com/fidelityfx-superresolution/
-        const FSR1 = 1 << 2;
-        /// https://gpuopen.com/fidelityfx-superresolution-2/
-        const FSR2 = 1 << 3;
-        /// https://gpuopen.com/fidelityfx-super-resolution-3/
-        const FSR3 = 1 << 4;
+        const NGX = 1 << 1;
+        /// Currently: https://github.com/GPUOpen-LibrariesAndSDKs/FidelityFX-SDK/tree/c6efa6bf7f2027b3ec94f28578bb5965eabb9e55
+        /// 
+        /// Eventually: https://gpuopen.com/fidelityfx-super-resolution-4/
+        const FSR = 1 << 2;
         /// https://www.intel.com/content/www/us/en/developer/topic-technology/gamedev/xess2.html
         const XeSS = 1 << 5;
         /// https://developer.apple.com/documentation/metalfx
-        const MLFX = 1 << 6;
+        const MTLFX = 1 << 6;
         /// This is a custom fallback, intended for systems otherwise without an available backend.
         const COMP = 1 << 7;
     }
 }
 
-/// 
 #[derive(Clone, Copy, PartialEq, Eq, Hash, Default, Debug)]
 pub enum Presets {
     /// Allow the quality mode to decide
@@ -50,12 +47,18 @@ pub enum Presets {
     Fastest
 }
 
-#[cfg(dlss)]
-use upsc_ngx::*;
+#[cfg(ngx)]
+use upsc_ngx as ngx;
+
+#[cfg(ffx)]
+use fidelityfx_sys::sdk::fsr3;
 
 /// A generic alias for internal (e.g. sdk-specific) performance mode values
 pub enum Mode {
-    DLSS(NVSDK_NGX_PerfQuality_Value),
+    #[cfg(ngx)]
+    NGX(ngx::NVSDK_NGX_PerfQuality_Value),
+    #[cfg(ffx)]
+    FSR(Option<fsr3::Fsr3QualityMode>),
 }
 
 impl Presets {
@@ -86,37 +89,55 @@ impl Presets {
             }
             Self::Native => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_DLAA)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_DLAA)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(None)),
                     _ => (),
                 })
             }
             Self::Best => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraQuality)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraQuality)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::QUALITY))),
                     _ => (),
                 })
             }
             Self::Quality => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_MaxQuality)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_MaxQuality)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::QUALITY))),
                     _ => (),
                 })
             }
             Self::Balanced => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_Balanced)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_Balanced)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::BALANCED))),
                     _ => (),
                 })
             }
             Self::Performance => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_MaxPerf)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_MaxPerf)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::PERFORMANCE))),
                     _ => (),
                 })
             }
             Self::Fastest => {
                 bitflags_match!(backends, {
-                    Backends::DLSS => modes.push(Mode::DLSS(NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraPerformance)),
+                    #[cfg(ngx)]
+                    Backends::NGX => modes.push(Mode::NGX(ngx::NVSDK_NGX_PerfQuality_Value_NVSDK_NGX_PerfQuality_Value_UltraPerformance)),
+                    #[cfg(ffx)]
+                    Backends::FSR => modes.push(Mode::FSR(Some(fsr3::Fsr3QualityMode::ULTRA_PERFORMANCE))),
                     _ => (),
                 })
             }
